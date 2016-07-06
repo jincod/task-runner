@@ -6,7 +6,9 @@
   "scripts": {
     "build": "babel ./src -d lib",
     "test": "mocha --compilers js:babel-register ./test/**/*.spec.js",
+    "test-watch": "mocha --compilers js:babel-register ./test/**/*.spec.js -w",
     "dev": "babel ./src -d lib -w",
+    "lint": "eslint ./src/**",
     "prepublish": "npm run build"
   },
   "bin": {
