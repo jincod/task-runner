@@ -13,7 +13,10 @@ export default (tasks, logger = console) => {
 					});
 			})
 		), Promise.resolve())
-		.then(() => logger.info('Done'))
+		.then(() => {
+			logger.info('Done');
+			return 0;
+		})
 		.catch(error => {
 			logger.error('Error');
 			logger.error(error);

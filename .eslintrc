@@ -2,6 +2,7 @@
 	"extends": "airbnb",
 	"rules": {
 		"indent": ["error", "tab"],
-		"comma-dangle": ["error", "never"]
+		"comma-dangle": ["error", "never"],
+		"object-curly-spacing": ["error", "never"]
 	}
 }
