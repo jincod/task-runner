@@ -4,44 +4,55 @@
 
 Modify package.json
 
-	"scripts": {
-		"task-runner": "task-runner"
-	}
+```json
+"scripts": {
+	"task-runner": "task-runner"
+}
+```
 
 Add build-config.js
 	
-	const clean = () => Promise.resolve();
-	const build = () => Promise.resolve();
+```javascript
+const clean = () => Promise.resolve();
+const build = () => Promise.resolve();
 
-	export default {
-		tasks: [
-			clean,
-			build
-		]
-	};
+export default {
+	tasks: [
+		clean,
+		build
+	]
+};
+```
 
 ## Usage
 
 ### Run all tasks
 
-	npm run task-runner
+```shell
+npm run task-runner
+```
 
 ### Run one task
 
-	npm run task-runner -- build
-	npm run task-runner -- clean
+```shell
+npm run task-runner -- build
+npm run task-runner -- clean
+```
 
 #### OR
 
 Update package.json:
-	
-	"scripts": {
-		...
-		"clean": "task-runner clean",
-		"build": "task-runner build"
-	}
+
+```json	
+"scripts": {
+	"clean": "task-runner clean",
+	"build": "task-runner build"
+}
+```
 
 Run
 
-	npm run clean
-	npm run build
+```shell
+npm run clean
+npm run build
+```
