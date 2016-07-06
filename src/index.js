@@ -1,25 +1,34 @@
-export default (tasks, logger = console) => (
-	tasks
+export default (tasks, options) => {
+	const {taskName, logger} = options;
+	const currentLogger = logger || console;
+
+	return tasks
+		.filter(task => !taskName || task.name === taskName)
 		.reduce((current, next) => (
 			current.then(() => {
-				const task = next(logger);
+				const task = next(currentLogger);
 
-				logger.info(`Executing: ${next.name}...`);
+				currentLogger.info(`Executing: ${next.name}...`);
 
 				return task
 					.then(result => {
-						logger.info(`Done: ${next.name}`);
+						currentLogger.info(`Done: ${next.name}`);
 						return result;
 					});
 			})
-		), Promise.resolve())
-		.then(() => {
-			logger.info('Done');
+		), Promise.resolve(true))
+		.then(result => {
+			if (result) {
+				const error = {message: 'tasks not found'};
+
+				throw error;
+			}
+			currentLogger.info('Done');
 			return 0;
 		})
 		.catch(error => {
-			logger.error('Error');
-			logger.error(error);
+			currentLogger.error('Error');
+			currentLogger.error(error);
 			throw error;
-		})
-);
+		});
+};

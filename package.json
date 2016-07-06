@@ -18,12 +18,13 @@
   },
   "author": "Vadim Abdrashitov <vadim.abdrashitov@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "babel-register": "^6.9.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.9.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015": "^6.9.0",
-    "babel-register": "^6.9.0",
     "chai": "^3.5.0",
     "eslint": "^2.13.1",
     "eslint-config-airbnb": "^9.0.1",

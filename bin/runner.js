@@ -1,4 +1,7 @@
 #! /usr/bin/env node
-var runner = require('../lib/index');
-var tasks = require(process.cwd() + '/build-tasks.js');
-runner(tasks);
+require('babel-register');
+var runner = require('../lib');
+var config = require(process.cwd() + '/build-config.js');
+var taskName = process.argv[2];
+
+runner(config.tasks, {taskName: taskName, logger: config.logger});
