@@ -1,4 +1,4 @@
-export default (tasks, logger = console) => {
+export default (tasks, logger = console) => (
 	tasks
 		.reduce((current, next) => (
 			current.then(() => {
@@ -21,5 +21,5 @@ export default (tasks, logger = console) => {
 			logger.error('Error');
 			logger.error(error);
 			throw error;
-		});
-};
+		})
+);
